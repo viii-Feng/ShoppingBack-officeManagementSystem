@@ -29,13 +29,25 @@ router.beforeEach(async (to: any, from: any, next: any) => {
       next({ path: '/' })
     } 
     if (to.path == '/regist') {
-      next()
+      next(next({ path: '/login' }))
     } else {
       //登录成功访问其余六个路由(登录排除)
       //有用户信息
       if (username) {
-        //放行
-        next()
+        //location.reload();
+        console.log(userStore.menuRoutes[0].path);
+        console.log(router.getRoutes());
+        console.log(to.matched[0]);
+         userStore.menuRoutes.map(item=>{
+          if(item.path==to.matched[0].path){
+            next()
+          }
+        })
+        next({ path: '/404' }) 
+        //next()
+       
+        
+        
       } else {
         //如果没有用户信息,在守卫这里发请求获取到了用户信息再放行
         try {

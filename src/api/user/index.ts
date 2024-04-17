@@ -2,7 +2,7 @@
 import request from '@/utils/request'
 import type {
   loginFormData,
-  loginResponseData,
+  loginResponseData, 
   userInfoReponseData,
 } from './type'
 //项目用户相关的请求地址

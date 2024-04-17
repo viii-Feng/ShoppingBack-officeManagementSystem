@@ -8,13 +8,15 @@
 <script setup lang="ts">
 //引入设置标题与logo这配置文件
 import setting from '@/setting';
+
 </script>
 <script lang="ts">
 import useLayOutSettingStore from '@/store/modules/setting';
-export default{
+
+let LayOutSettingStore = useLayOutSettingStore();
+export default {
     name:"Logo"
 }
-let LayOutSettingStore = useLayOutSettingStore();
 </script>
 <style scoped lang="scss">
 .logo {
